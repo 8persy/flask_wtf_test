@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<ul>
+    {% for user in users %}
+        <li>
+            <a href="{{ url_for('user.view', user_id=user.id) }}">{{ user.name }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('user.signup') }}">signup</a>
+{#<a href="{{ url_for('user.login') }}">login</a>#}
+</body>
+</html>

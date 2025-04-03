@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Info about user:
+<h2>{{ user.name }}</h2>
+
+<a href="{{ url_for('user.update', user_id=user.id) }}">Update</a>
+<a href="{{ url_for('user.delete', user_id=user.id) }}">Delete</a>
+</body>
+</html>

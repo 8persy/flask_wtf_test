@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp</title>
+</head>
+<body>
+
+<form method="post">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }} {{ form.name() }}
+    {{ form.email.label }} {{ form.email() }}
+    {{ form.age.label }} {{ form.age() }}
+    {{ form.submit() }}
+</form>
+
+</body>
+</html>
