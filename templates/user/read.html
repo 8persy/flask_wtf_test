@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Info about user:
-<h2>{{ user.name }}</h2>
+{% extends 'index.html' %}
 
-<a href="{{ url_for('user.update', user_id=user.id) }}">Update</a>
-<a href="{{ url_for('user.delete', user_id=user.id) }}">Delete</a>
-</body>
-</html>
+{% block title %}
+    read
+{% endblock %}
+
+{% block content %}
+    Info about user:
+    <h2 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
+        {{ user.name }}
+    </h2>
+
+    <h3 class="lh-3 text-body-emphasis mb-3">Email: {{ user.email }}</h3>
+    <h3 class="lh-3 text-body-emphasis mb-3">Age: {{ user.age }}</h3>
+
+    <a href="{{ url_for('user.update', user_id=user.id) }}"
+       class="btn btn-primary">Update</a>
+    <a href="{{ url_for('user.delete', user_id=user.id) }}"
+    class="btn btn-secondary">Delete</a>
+{% endblock %}

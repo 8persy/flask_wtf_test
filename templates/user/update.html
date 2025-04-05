@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Update</title>
-</head>
-<body>
-<form method="post">
-    {{ form.hidden_tag() }}
-    {{ form.name.label }} {{ form.name() }}
-    {{ form.email.label }} {{ form.email() }}
-    {{ form.age.label }} {{ form.age() }}
-    {{ form.submit() }}
-</form>
-</body>
-</html>
+{% extends 'index.html' %}
+{% block title %}
+    Update
+{% endblock %}
+
+{% block content %}
+    <form method="post"
+    class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        {{ form.hidden_tag() }}
+        {{ form.name.label }} {{ form.name(class='form-control') }}
+        {{ form.email.label }} {{ form.email(class='form-control') }}
+        {{ form.age.label }} {{ form.age(class='form-control') }}
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+{% endblock %}

@@ -21,7 +21,7 @@ class UpdateForm(FlaskForm):
     name = StringField('name', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('email', validators=[DataRequired(), Length(min=6, max=30)])
     age = IntegerField('age', validators=[DataRequired()])
-    submit = SubmitField('SignUp')
+    submit = SubmitField('Update')
 
     @staticmethod
     def validate_username(username):
