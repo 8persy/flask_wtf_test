@@ -56,6 +56,7 @@ class Book(Base):
 
     id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
+    description = Column(String)
     user_id = Column(Integer, ForeignKey('users.id'))
 
     owner = relationship('User', back_populates="books")

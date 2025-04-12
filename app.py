@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_wtf import CSRFProtect
 from flask_session import Session
+from flask_migrate import Migrate
 
 from views.user import add_user
 from models.users import db
@@ -20,6 +21,8 @@ CSRFProtect(app)
 
 db.init_app(app)
 # create_table(app)
+
+migrate = Migrate(app, db)
 
 add_user(app, db)
 
