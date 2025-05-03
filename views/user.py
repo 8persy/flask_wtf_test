@@ -150,6 +150,13 @@ class DeleteUser(MethodView):
         return redirect(url_for('user.list'))
 
 
+# class ListItems(MethodView):
+#     init_every_request = False
+#
+#     def get(self):
+#         render_template('api/main.html')
+
+
 def add_user(app: Flask, engine: SQLAlchemy):
     common_func = UserList.as_view('user.list', engine=engine)
     app.add_url_rule('/', view_func=common_func)
@@ -160,3 +167,4 @@ def add_user(app: Flask, engine: SQLAlchemy):
     app.add_url_rule('/user/<user_id>/update', view_func=UserUpdate.as_view('user.update', engine=engine))
     app.add_url_rule('/login', view_func=UserLogin.as_view('user.login', engine=engine))
     app.add_url_rule('/user/<user_id>/delete', view_func=DeleteUser.as_view('user.delete', engine=engine))
+    # app.add_url_rule('/api', view_func=ListItems.as_view('api.list'))

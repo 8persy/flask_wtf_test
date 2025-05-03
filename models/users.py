@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Table
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped, mapped_column
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase
@@ -82,6 +82,14 @@ class Subscription(Base):
 
     def __repr__(self):
         return f"<Subscription(id={self.id}, name={self}, users={self.users})>"
+
+
+class Item(db.Model):
+    __tablename__ = 'items'
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(db.String(100), nullable=False)
+    description: Mapped[str] = mapped_column(db.String(200), nullable=False)
 
 
 def create_table(app):
